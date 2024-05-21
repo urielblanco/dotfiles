@@ -1,9 +1,4 @@
 #!/bin/sh
-{{ if eq .chezmoi.os "linux" -}}
-
-echo "linux pending"
-
-{{ else if eq .chezmoi.os "darwin" -}}
 
 # Function to check if Homebrew is installed
 check_homebrew() {
@@ -76,22 +71,36 @@ run_ansible_playbook() {
 }
 
 # Main script
-if check_homebrew; then
-  echo "Skipping Homebrew installation"
-else
-  install_homebrew
-fi
+if [ "$(uname)" = "Darwin" ]; then
+  echo "Detected macOS (Darwin)"
 
-if check_git; then
-  echo "Skipping Git installation"
-else
-  install_git
-fi
+  if check_homebrew; then
+    echo "Skipping Homebrew installation"
+  else
+    install_homebrew
+  fi
 
-if check_ansible; then
-  echo "Skipping Ansible installation"
+  if check_git; then
+    echo "Skipping Git installation"
+  else
+    install_git
+  fi
+
+  if check_ansible; then
+    echo "Skipping Ansible installation"
+  else
+    install_ansible
+  fi
+
+elif [ "$(uname)" = "Linux" ]; then
+  echo "Detected Linux"
+  
+  # Add Linux specific installation commands here
+  echo "Linux specific installation not implemented"
+
 else
-  install_ansible
+  echo "Unsupported operating system"
+  exit 1
 fi
 
 # Variables
@@ -104,6 +113,3 @@ clone_repo "$REPO_URL" "$DEST_DIR"
 
 # Run the Ansible playbook
 run_ansible_playbook "$PLAYBOOK_PATH"
-
-
-{{ end -}}
