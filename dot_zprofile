@@ -1,0 +1,8 @@
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
+# chezmoi and local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# anaconda
+export PATH="/opt/homebrew/anaconda3/bin/:$PATH"

@@ -14,6 +14,7 @@ check_homebrew() {
 install_homebrew() {
   echo "Downloading and installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  source ~/.zprofile
 }
 
 # Function to check if Git is installed
@@ -67,8 +68,7 @@ run_ansible_playbook() {
   local playbook_path="$1"
 
   echo "Running Ansible playbook $playbook_path..."
-  echo "Running with sudo privileges $playbook_path..."
-  sudo ansible-playbook "$playbook_path" -K
+  ansible-playbook "$playbook_path" -K
 }
 
 # Main script
