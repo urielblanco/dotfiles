@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Variables
+REPO_URL="https://github.com/urielblanco/workstation.git"
+DEST_DIR="$HOME/.workstation"
+PLAYBOOK_PATH="$DEST_DIR/setup.yml"
+
 # Function to check if Homebrew is installed
 check_homebrew() {
   if command -v brew &> /dev/null; then
@@ -72,6 +77,11 @@ run_ansible_playbook() {
 }
 
 # Main script
+if [ -d "$DEST_DIR" ]; then
+  echo "Directory $DEST_DIR already exists. Exiting..."
+  exit 0
+fi
+
 if [ "$(uname)" = "Darwin" ]; then
   echo "Detected macOS (Darwin)"
 
@@ -103,11 +113,6 @@ else
   echo "Unsupported operating system"
   exit 1
 fi
-
-# Variables
-REPO_URL="https://github.com/urielblanco/workstation.git"
-DEST_DIR="$HOME/.workstation"
-PLAYBOOK_PATH="$DEST_DIR/setup.yml"
 
 # Clone the repository
 clone_repo "$REPO_URL" "$DEST_DIR"
