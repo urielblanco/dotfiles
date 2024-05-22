@@ -67,7 +67,7 @@ run_ansible_playbook() {
   local playbook_path="$1"
 
   echo "Running Ansible playbook $playbook_path..."
-  ansible-playbook "$playbook_path" --ask-become-pass
+  ansible-playbook "$playbook_path" -K
 }
 
 # Main script
