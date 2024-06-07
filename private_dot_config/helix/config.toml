@@ -1,0 +1,20 @@
+theme = "custom_mocha"
+
+[editor]
+line-number = "relative"
+cursorline = true
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[keys.normal]
+"C-S-o" = "switch_to_uppercase"
+"C-S-l" = "switch_to_lowercase"
+"C-S-k" = "switch_case"
+

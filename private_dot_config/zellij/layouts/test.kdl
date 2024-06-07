@@ -1,0 +1,24 @@
+layout {
+tab_template name="strider_tab" {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="Vertical" {
+            pane size="15%" {
+                // TODO: when we support sending CWD to plugins, this should start in ./zellij-derver
+                plugin location="zellij:strider"
+            }
+            children
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+   strider_tab name="Server (root)" focus=true {
+        pane split_direction="vertical" {
+            pane borderless=true 
+            pane borderless=true
+        }
+    }
+}
