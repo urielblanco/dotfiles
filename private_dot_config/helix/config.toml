@@ -4,6 +4,9 @@ theme = "custom_mocha"
 line-number = "relative"
 cursorline = true
 color-modes = true
+# Force the theme to show colors
+true-color = true
+# bufferline = "multiple"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,7 +17,7 @@ select = "underline"
 render = true
 
 [keys.normal]
-"C-S-o" = "switch_to_uppercase"
-"C-S-l" = "switch_to_lowercase"
-"C-S-k" = "switch_case"
+# "C-S-o" = "switch_to_uppercase"
+# "C-S-l" = "switch_to_lowercase"
+# "C-S-k" = "switch_case"
 

@@ -1,0 +1,9 @@
+inherits = "tokyonight_storm"
+
+"ui.background" = { fg = "white"}
+"ui.text" = { fg = "light-gray" }
+"ui.linenr" = { fg = "comment" }
+function = { fg = "blue"}
+
+[palette]
+fg-linenr = "#D7D9DF"
