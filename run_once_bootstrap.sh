@@ -18,7 +18,12 @@ check_homebrew() {
 # Function to install Homebrew
 install_homebrew() {
   echo "Downloading and installing Homebrew..."
+
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Change ownership of /opt/homebrew
+  sudo chown -R $(whoami) /opt/homebrew
+  
   source ~/.zprofile
 }
 

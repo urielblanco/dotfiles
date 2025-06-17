@@ -4,11 +4,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 # chezmoi and local bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# anaconda
-export PATH="/opt/homebrew/anaconda3/bin/:$PATH"
-
 #java
 export PATH="/opt/homebrew/Caskroom/android-studio/2023.3.1.19/Android Studio.app/Contents/jbr/Contents/Home/bin/:$PATH"
 
-#sml
-export PATH=/usr/local/smlnj/bin:"$PATH"
+#android
+export PATH=~/Library/Android/sdk/tools:$PATH
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
